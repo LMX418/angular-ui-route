@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title page-title>angularjs</title>  
+    <link rel="stylesheet" href="css/style.css"> 
+</head>
+<body>
+	<div ng-controller="index">
+    <div class="box" ng-repeat="i in language">
+        <span class="item">{{i.name}}<b ng-class="{true:'active',false:'inactive'}[language[$index].isactive]"></b></span>
+        <div class="txt">
+            <input type="text" ng-model="text" ng-keyup="changeTxt(text,i.id)" />
+        </div>
+    </div>
+    <button ng-click="sub()">
+        提交
+    </button>
+
+    <div class="tbox" ng-if="isShow">
+        <select ng-model="selected" ng-options="m for m in sArr">
+            <option value="">==选择＝＝</option>
+        </select>
+        <div ng-repeat="i in language">
+            <input type="checkbox" ng-checked="!i.isactive" />{{i.name}}
+        </div>
+    </div>
+
+
+</div>
+</body>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/ocLazyLoad.min.js"></script>
+<script type="text/javascript" src="js/angular-ui-router.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+ <!-- <script type="text/javascript" src="js/config.js"></script --> 
+<script type="text/javascript" src="js/controller.js"></script>
+<!-- <script type="text/javascript" src="js/directive.js"></script> -->
+</html>
